@@ -1,0 +1,19 @@
+/* Dashboard notifications element (card) */
+.dashboard .notifications {
+    @apply flex-1;
+}
+
+.dashboard .notifications .notification > .notification-content {
+    @apply flex-1 flex flex-row items-center text-start;
+}
+.dashboard .notifications .notification > .notification-content > div {
+    @apply flex-1;
+}
+
+.dashboard .notifications .notification > .notification-content > .notification-title {
+    @apply text-lg font-semibold;
+}
+
+.dashboard .notifications .notification > .notification-content > .notification-description {
+    @apply text-sm text-base-content;
+}

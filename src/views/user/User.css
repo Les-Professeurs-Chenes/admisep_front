@@ -1,0 +1,80 @@
+/* main divs */
+.dashboard, .profile {
+    @apply bg-base-100;
+    @apply text-start;
+}
+
+/* account tresorerie */
+.status-treso {
+    @apply flex flex-row flex-wrap items-center;
+}
+
+.status-treso .treso-item {
+    @apply flex-1;
+    @apply mt-0 !important;
+    @apply rounded-lg p-2;
+    @apply max-w-full;
+}
+
+@media (min-width: 750px; max-width: 1700px) {
+    .status-treso .treso-item {
+        flex-basis: 50%;
+    }
+}
+
+/* account details */
+.account-details {
+    @apply flex flex-row items-start;
+}
+.account-details > div {
+    @apply flex-1;
+    @apply p-2;
+    @apply w-full;
+}
+
+@media (max-width: 1200px) {
+    .account-details {
+        @apply flex-col;
+    }
+    .account-details > div {
+        @apply flex-1;
+    }
+}
+
+/* user interface elements (general) */
+.subtitle {
+    @apply text-lg font-semibold py-3;
+}
+.account-card {
+    @apply flex-auto;
+    @apply bg-base-200 shadow-md rounded-lg p-4 mb-5;
+}
+
+.account-card .card-header {
+    @apply flex flex-row items-center;
+}
+.account-card .card-body {
+    @apply p-3;
+}
+.account-card .card-header > .title {
+    @apply flex-1 text-lg font-semibold pe-5;
+    @apply whitespace-nowrap overflow-ellipsis overflow-hidden;
+}
+.account-card .card-header > .title > .card-title {
+    @apply whitespace-nowrap overflow-ellipsis overflow-hidden;
+    @apply max-w-full;
+}
+
+.account-card .card-header > .go-to-link {
+    @apply flex-none;
+    @apply text-end text-base-content text-xs;
+}
+
+.account-card .card-body {
+    @apply space-y-0;
+}
+
+.account-card .card-footer {
+    @apply text-end;
+    @apply pt-3;
+}

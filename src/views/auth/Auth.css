@@ -1,0 +1,38 @@
+.login {
+    @apply flex flex-row items-center justify-center space-y-4;
+    @apply min-h-screen;
+}
+
+.login > .logo {
+    @apply w-96 h-96;
+}
+
+@media (max-width: 700px) {
+    .login {
+        @apply flex-col;
+    }
+    .login > .logo {
+        @apply w-52 h-52;
+    }
+}	
+
+.login > .login-container {
+    @apply flex flex-col items-center justify-center h-full space-y-4;
+}
+
+
+.login > .login-container > .logo > img {
+    @apply w-full h-full;
+}
+
+.login > .login-container > .title {
+    @apply text-4xl font-bold text-primary;
+}
+
+.login > .login-container > .subtitle {
+    @apply text-sm max-w-xs text-center text-gray-500;
+}
+
+.login > .login-container > .btn {
+    @apply text-lg
+}

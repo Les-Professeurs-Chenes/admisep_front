@@ -1,0 +1,55 @@
+.navbar {
+    @apply sticky top-0 z-50 bg-base-100;
+    @apply bg-base-200;
+}
+
+.navbar .menu-section {
+    @apply flex items-center p-4 rounded-lg cursor-pointer text-xl;
+    @apply transition-colors duration-200;
+}
+
+.navbar .menu-section:hover {
+    @apply bg-base-100;
+}
+
+.navbar .menu-section.active {
+    @apply bg-base-100;
+}
+
+.navbar .navbar-end .profile-section {
+    @apply flex items-center space-x-3 px-4 py-2 rounded-lg cursor-pointer;
+    @apply transition-colors duration-200;
+}
+
+.navbar .navbar-end .profile-section:hover {
+    @apply bg-base-100;
+}
+
+.navbar .navbar-end .profile-section .username {
+    @apply text-base-content font-semibold ml-2;
+    @apply whitespace-nowrap overflow-hidden overflow-ellipsis;
+}
+
+.navbar .navbar-end .profile-section .profile-image {
+    @apply h-10 w-10 rounded-full;
+}
+
+
+/* responsiveness */
+@media (max-width: 768px) {
+    .navbar .menu-section {
+        @apply p-2;
+    }
+
+    .navbar .navbar-end .profile-section {
+        @apply p-2;
+    }
+
+    .navbar .navbar-end .profile-section .user-name {
+        @apply hidden;
+    }
+
+    .navbar .navbar-center {
+        @apply hidden;
+    }
+}

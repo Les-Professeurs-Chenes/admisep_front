@@ -1,0 +1,43 @@
+/* Treso */
+.dashboard .treso-info-container {
+    @apply flex flex-col items-start;
+}
+
+.dashboard .treso-info-container h3 {
+    @apply flex-none text-lg font-bold;
+}
+
+.dashboard .treso-info-container p {
+    @apply flex-none text-sm text-base-content;
+}
+
+.dashboard .treso-info-container p image {
+    @apply w-6 h-6;
+}
+
+/* Treso details */
+.dashboard .treso-details div.treso-transaction {
+    @apply flex flex-row items-start;
+}
+
+.dashboard .treso-details div.treso-transaction div {
+    @apply flex-1;
+}
+
+.dashboard .treso-details div.treso-transaction div.transaction-name {
+    @apply text-sm font-bold m-0 p-0;
+    @apply whitespace-nowrap;
+}
+.dashboard .treso-details div.treso-transaction div.transaction-amount {
+    @apply text-sm font-semibold m-0 p-0;
+    @apply whitespace-nowrap;   
+}
+
+/* responsiveness of the page */
+@media (max-width: 1200px) {
+    /* Treso & user info */
+    .dashboard .status-treso {
+        @apply flex-1 flex flex-col text-start;
+        @apply space-y-5 space-x-0;
+    }
+}

@@ -1,0 +1,17 @@
+/* user info */
+.dashboard .user-info-container {
+    @apply flex flex-col items-start;
+    @apply text-start;
+}
+
+.dashboard .user-info-container > div > h3 {
+    @apply flex-none text-lg font-bold;
+}
+
+.dashboard .user-info-container > div > p {
+    @apply flex-none text-sm text-base-content;
+}
+
+.dashboard .user-info-container > div > p > image {
+    @apply w-6 h-6;
+}

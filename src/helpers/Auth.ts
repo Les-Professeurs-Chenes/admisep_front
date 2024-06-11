@@ -23,3 +23,34 @@ export const login = async (login: string, password: string): Promise<any> => {
     return error;
   }
 };
+
+export const register = async (
+  moodle_id: string,
+  firstName: string,
+  lastName: string,
+  mail: string,
+  password: string
+): Promise<any> => {
+  try {
+    const response: AxiosResponse<any> = await axios.post(
+      `${apiUrl}/users/register`,
+      {
+        moodle_id,
+        firstName,
+        lastName,
+        mail,
+        password,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    const registerData: any = response.data;
+    return registerData;
+  } catch (error) {
+    return error;
+  }
+};

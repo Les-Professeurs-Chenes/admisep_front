@@ -2,6 +2,7 @@ import "./Auth.css";
 import logo from "../../assets/logo.png";
 import { useState } from "react";
 import { register } from "../../helpers/Auth";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   const [moodleIdInput, setMoodleIdInput] = useState("");
@@ -10,6 +11,7 @@ export default function Register() {
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [confirmPasswordInput, setConfirmPasswordInput] = useState("");
+  const navigate = useNavigate();
 
   const handleRegister = async () => {
     if (passwordInput !== confirmPasswordInput) {
@@ -34,6 +36,7 @@ export default function Register() {
     console.log(registerData);
     if (registerData.id !== undefined) {
       console.log("Registered successfully");
+      navigate("/Login");
     }
   };
 

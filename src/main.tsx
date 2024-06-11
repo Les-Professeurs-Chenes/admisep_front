@@ -9,9 +9,6 @@ import Register from "./views/auth/Register";
 import { getUserByToken } from "./helpers/User";
 import Home from "./views/home/Home";
 
-const user = await getUserByToken();
-const user_logged_in = user.id !== undefined;
-
 const queryClient = new QueryClient({});
 
 const root = ReactDOM.createRoot(
@@ -26,7 +23,7 @@ root.render(
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/" element={user_logged_in ? <Home /> : <Login />} />
+            <Route path="/" element={<Home />} />
           </Routes>
         </div>
       </Router>

@@ -15,6 +15,7 @@ export default function Login() {
     console.log(loginData);
     if (loginData.id !== undefined) {
       console.log("Logged in");
+      navigate("/");
     }
   };
 

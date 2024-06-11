@@ -1,15 +1,14 @@
-import './User.css'
-import './components/UserInfo.css'
-import ShowProfile from "./components/ShowProfile";
+import "./User.css";
+import "./components/UserInfo.css";
+import { ShowProfile } from "./components/ShowProfile";
 import EditProfile from "./components/EditProfile";
-import { useState } from 'react'
-import User from '../../models/User';
+import { useState } from "react";
+import User from "../../models/User";
 
 // Component for user profile page
 export default function Profile() {
-
-  const [user, setUser] = useState({} as User)
-  const [modify, setModify] = useState(false)
+  const [user, setUser] = useState({} as User);
+  const [modify, setModify] = useState(false);
 
   return (
     <>
@@ -17,13 +16,17 @@ export default function Profile() {
         <div className="account-details">
           <div>
             {modify ? (
-              <EditProfile modifyProfile={() => setModify(!modify)} user={user} setUser={setUser} />
+              <EditProfile
+                modifyProfile={() => setModify(!modify)}
+                user={user}
+                setUser={setUser}
+              />
             ) : (
-              <ShowProfile modifyProfile={() => setModify(!modify)} user={user} />
+              <ShowProfile />
             )}
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }

@@ -19,13 +19,13 @@ export default function Register() {
       return;
     }
 
-    console.log(
+    /*console.log(
       moodleIdInput,
       firstNameInput,
       lastNameInput,
       emailInput,
       passwordInput
-    );
+    );*/
     const registerData = await register(
       moodleIdInput,
       firstNameInput,

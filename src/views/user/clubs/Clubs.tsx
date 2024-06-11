@@ -72,102 +72,121 @@ const CreateClub: React.FC<Props> = ({ onCreateClub }) => {
   };
 
   return (
-    <div>
-      <h2>Create Club</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="name"
-            value={clubData.name}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Description:
-          <input
-            type="text"
-            name="description"
-            value={clubData.description}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Type:
-          <input
-            type="text"
-            name="type"
-            value={clubData.type}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Creation:
-          <input
-            type="text"
-            name="creation"
-            value={clubData.creation}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Logo URL:
-          <input
-            type="text"
-            name="logoUrl"
-            value={clubData.logoUrl}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Website:
-          <input
-            type="text"
-            name="website"
-            value={clubData.website}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Facebook:
-          <input
-            type="text"
-            name="facebook"
-            value={clubData.facebook}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Instagram:
-          <input
-            type="text"
-            name="instagram"
-            value={clubData.instagram}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Twitter:
-          <input
-            type="text"
-            name="twitter"
-            value={clubData.twitter}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Viewable:
-          <input
-            type="checkbox"
-            name="viewable"
-            checked={clubData.viewable}
-            onChange={handleCheckboxChange}
-          />
-        </label>
-        <button type="submit">Create Club</button>
-      </form>
-    </div>
+    <>
+      <div className="flex flex-col items-center justify-center pt-8">
+        <h2 className="text-2xl font-bold">Create Club</h2>
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col items-center justify-center w-full max-w-xl p-4 bg-base-300 rounded-md mt-5"
+        >
+          <div className="grid grid-cols-3 gap-4">
+            <label className="flex flex-col items-center justify-center">
+              Name:
+              <input
+                className="border border-gray-300 rounded-md"
+                type="text"
+                name="name"
+                value={clubData.name}
+                onChange={handleChange}
+              />
+            </label>
+            <label className="flex flex-col items-center justify-center">
+              Description:
+              <input
+                className="border border-gray-300 rounded-md"
+                type="text"
+                name="description"
+                value={clubData.description}
+                onChange={handleChange}
+              />
+            </label>
+            <label className="flex flex-col items-center justify-center">
+              Type:
+              <input
+                className="border border-gray-300 rounded-md"
+                type="text"
+                name="type"
+                value={clubData.type}
+                onChange={handleChange}
+              />
+            </label>
+            <label className="flex flex-col items-center justify-center">
+              Creation:
+              <input
+                className="border border-gray-300 rounded-md"
+                type="text"
+                name="creation"
+                value={clubData.creation}
+                onChange={handleChange}
+              />
+            </label>
+            <label className="flex flex-col items-center justify-center">
+              Logo URL:
+              <input
+                className="border border-gray-300 rounded-md"
+                type="text"
+                name="logoUrl"
+                value={clubData.logoUrl}
+                onChange={handleChange}
+              />
+            </label>
+            <label className="flex flex-col items-center justify-center">
+              Website:
+              <input
+                className="border border-gray-300 rounded-md"
+                type="text"
+                name="website"
+                value={clubData.website}
+                onChange={handleChange}
+              />
+            </label>
+            <label className="flex flex-col items-center justify-center">
+              Facebook:
+              <input
+                className="border border-gray-300 rounded-md"
+                type="text"
+                name="facebook"
+                value={clubData.facebook}
+                onChange={handleChange}
+              />
+            </label>
+            <label className="flex flex-col items-center justify-center">
+              Instagram:
+              <input
+                className="border border-gray-300 rounded-md"
+                type="text"
+                name="instagram"
+                value={clubData.instagram}
+                onChange={handleChange}
+              />
+            </label>
+            <label className="flex flex-col items-center justify-center">
+              Twitter:
+              <input
+                className="border border-gray-300 rounded-md"
+                type="text"
+                name="twitter"
+                value={clubData.twitter}
+                onChange={handleChange}
+              />
+            </label>
+            <label className="flex flex-col items-center justify-center">
+              Viewable:
+              <input
+                className="border border-gray-300 rounded-md"
+                type="checkbox"
+                name="viewable"
+                checked={clubData.viewable}
+                onChange={handleCheckboxChange}
+              />
+            </label>
+          </div>
+          <button className="btn btn-primary" type="submit">
+            Create Club
+          </button>
+        </form>
+      </div>
+    </>
   );
 };
 

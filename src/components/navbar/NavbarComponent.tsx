@@ -1,5 +1,6 @@
 import './NavbarComponent.css'
 import logo from '../../assets/logo.png'
+import admisep from '../../assets/admisep.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faX } from '@fortawesome/free-solid-svg-icons'
 
@@ -18,7 +19,7 @@ export default function NavbarComponent({
             </div>
         </div>
         <div className="navbar-center">
-                Adm'ISEP
+            <img src={admisep} alt="logo" className="center-logo" />
         </div>
         <div className="navbar-end">
             <div className="profile-section">

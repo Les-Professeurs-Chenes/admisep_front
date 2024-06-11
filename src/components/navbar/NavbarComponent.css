@@ -34,6 +34,9 @@
     @apply h-10 w-10 rounded-full;
 }
 
+.navbar .navbar-center .center-logo {
+    @apply h-8 w-auto;
+}
 
 /* responsiveness */
 @media (max-width: 768px) {

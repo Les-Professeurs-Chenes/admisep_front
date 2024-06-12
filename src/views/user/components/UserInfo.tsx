@@ -1,10 +1,14 @@
 import { faArrowUpRightFromSquare, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './UserInfo.css'
+import User from "../../../models/User";
 
 
-export default function UserInfo() {
-
+export default function UserInfo({
+    user
+} : {
+    user: User
+}) {
     function handleClick() {
         return;
     }
@@ -28,11 +32,11 @@ export default function UserInfo() {
                     <div className="user-info-container">
                         <div>
                             <h3 className="subtitle">Nom et prénom</h3>
-                            <p>Axel JOSEPH-ANTOINE</p>
+                            <p>{user.firstName} {user.lastName}</p>
                         </div>
                         <div>
                             <h3 className="subtitle">Promo</h3>
-                            <p>2023</p>
+                            <p>{user.promo ?? 'N/A'}</p>
                         </div>
                         <div>
                             <h3 className="subtitle">Mes associations/clubs:</h3>

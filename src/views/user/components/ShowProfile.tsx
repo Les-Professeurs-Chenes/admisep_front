@@ -12,6 +12,8 @@ export default function ShowProfile(
         modifyProfile?: () => void,
     }
 ) {
+    console.log(user)
+    
     return (
         <>
             <div className="card account-card">
@@ -28,21 +30,21 @@ export default function ShowProfile(
                         <div className="row">
                             <div className="col">
                                 <h3 className="subtitle">Prenom</h3>
-                                <p>Axel</p>
+                                <p>{user.firstName}</p>
                             </div>
                             <div className="col">
                                 <h3 className="subtitle">Nom</h3>
-                                <p>JOSEPH-ANTOINE</p>
+                                <p>{user.lastName}</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col">
                                 <h3 className="subtitle">Email</h3>
-                                <p>axeljosephantoine@gmail.com</p>
+                                <p>{user.mail}</p>
                             </div>
                             <div className="col">
                                 <h3 className="subtitle">Date de naissance</h3>
-                                <p>22/05/2002</p>
+                                <p>{(user.birthDate) ? `${user.birthDate.toLocaleString().split('T')[0].split('-').reverse().join('/')}` : 'N/A'}</p>
                             </div>
                         </div>
                         
@@ -50,7 +52,7 @@ export default function ShowProfile(
                         <hr />
                         <div>
                             <h3 className="subtitle">Promo</h3>
-                            <p>2023</p>
+                            <p>{user.promo ?? 'N/A'}</p>
                         </div>
                         <div>
                             <h3 className="subtitle">Mes associations/clubs:</h3>

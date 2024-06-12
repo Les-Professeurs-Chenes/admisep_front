@@ -68,6 +68,11 @@
 .account-card .card-header > .go-to-link {
     @apply flex-none;
     @apply text-end text-base-content text-xs;
+    @apply cursor-pointer w-10 h-10 rounded-xl text-center flex items-center justify-center;
+}
+
+.account-card .card-header > .go-to-link:hover {
+    @apply bg-base-300;
 }
 
 .account-card .card-body {

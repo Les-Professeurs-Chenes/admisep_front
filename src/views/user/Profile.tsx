@@ -6,10 +6,16 @@ import { useState } from 'react'
 import User from '../../models/User';
 
 // Component for user profile page
-export default function Profile() {
+export default function Profile({
+  user,
+  setUser
+} : {
+  user: User,
+  setUser: (user: User) => void
+}) {
 
-  const [user, setUser] = useState({} as User)
   const [modify, setModify] = useState(false)
+
 
   return (
     <>

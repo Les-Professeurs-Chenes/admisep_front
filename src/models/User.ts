@@ -1,29 +1,45 @@
-export default class User {
-    id: string;
-    name: string;
-    email: string;
-    role: string;
-    token: string;
+import * as userHelper from '../helpers/User';
 
-    constructor(id: string, name: string, email: string, role: string, token: string) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.role = role;
-        this.token = token;
+export default class User {
+    id: number
+    moodleId: string
+    firstName: string
+    lastName: string
+    mail: string
+    promo: number|null
+    birthDate: Date|null
+
+    constructor(id: number, moodleId: string, firstName: string, lastName: string, mail: string, promo: number|null, birthDate: Date|null) {	
+        this.id = id
+        this.moodleId = moodleId
+        this.firstName = firstName
+        this.lastName = lastName
+        this.mail = mail
+        this.promo = promo
+        this.birthDate = birthDate
+    }
+
+    getClubs() {
+        return userHelper.getUserClubs(this.id);
     }
 
     static fromJson(json: any): User {
-        return new User(json.id, json.name, json.email, json.role, json.token);
+        return new User(json.id, json.moodleId, json.firstName, json.lastName, json.mail, json.promo, json.birthDate);
+    }
+
+    static async getAll() {
+        return await userHelper.getAllUsers();
     }
 
     toJson(): any {
         return {
             id: this.id,
-            name: this.name,
-            email: this.email,
-            role: this.role,
-            token: this.token,
+            moodleId: this.moodleId,
+            firstName: this.firstName,
+            lastName: this.lastName,
+            mail: this.mail,
+            promo: this.promo,
+            birthDate: this.birthDate
         };
     }
 
@@ -33,5 +49,9 @@ export default class User {
 
     static toJsonArray(users: User[]): any {
         return users.map(user => user.toJson());
+    }
+
+    static empty(): User {
+        return new User(0, "", "", "", "", null, null);
     }
 }

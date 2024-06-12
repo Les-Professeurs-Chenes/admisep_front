@@ -33,7 +33,6 @@ export default function Register() {
       emailInput,
       passwordInput
     );
-    console.log(registerData);
     if (registerData.id !== undefined) {
       console.log("Registered successfully");
       navigate("/Login");

@@ -10,7 +10,6 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    console.log(loginInput, passwordInput);
     const loginData = await login(loginInput, passwordInput);
     console.log(loginData);
     if (loginData.id !== undefined) {

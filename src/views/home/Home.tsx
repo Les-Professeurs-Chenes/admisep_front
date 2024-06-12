@@ -14,6 +14,7 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import Dashboard from "../../views/user/Dashboard";
 import "./Home.css";
 import Profile from "../user/Profile";
+import CreateClubs from "../user/clubs/CreateClubs";
 import Clubs from "../user/clubs/Clubs";
 import Treso from "../user/treso/Treso";
 import Cvec from "../user/treso/Cvec";
@@ -23,51 +24,59 @@ import Settings from "../user/settings/Settings";
 import ClubSettings from "../user/settings/ClubSettings";
 import { getUserByToken } from "../../helpers/User";
 import { useNavigate } from "react-router-dom";
+import User from "../../models/User";
 
 export default function Home() {
   const [currentTab, setCurrentTab] = useState(
     localStorage.getItem("currentTab") || "Dashboard"
   );
   const [menu, setMenu] = useState(true);
+  const [user, setUser] = useState<User>(User.empty());
+  const [triggerEffect, setTriggerEffect] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    isConnected();
-  });
 
-  async function isConnected() {
-    const user = await getUserByToken();
-    const user_logged_in = user.id !== undefined;
-    if (!user_logged_in) {
-      navigate("/Login");
-    }
-  }
 
   const tabs = [
-    { name: "Dashboard", icon: faGauge, view: <Dashboard />, subItems: [] },
-    { name: "Profile", icon: faUser, view: <Profile />, subItems: [] },
-    { name: "Clubs", icon: faPeopleGroup, view: <Clubs />, subItems: [] },
+    { name: "Dashboard", icon: faGauge, view: <Dashboard user={user} />, subItems: [] },
+    { name: "Profile", icon: faUser, view: <Profile user={user} setUser={setUser} />, subItems: [] },
+    { name: "Clubs", icon: faPeopleGroup, view: <Clubs user={user} />, subItems: [] },
+    { name: "Create Clubs", icon: faPeopleGroup, view: <CreateClubs />, subItems: [] },
     {
       name: "Tréso",
       icon: faWallet,
       view: null,
       subItems: [
-        { name: "Général", icon: faMoneyBill, view: <Treso /> },
-        { name: "CVEC", icon: faFolder, view: <Cvec /> },
-        { name: "Subventions BDE", icon: faFolder, view: <Subventions /> },
+        { name: "Général", icon: faMoneyBill, view: <Treso  user={user}  /> },
+        { name: "CVEC", icon: faFolder, view: <Cvec user={user} /> },
+        { name: "Subventions BDE", icon: faFolder, view: <Subventions  user={user} /> },
       ],
     },
-    { name: "Messages", icon: faEnvelope, view: <Messages />, subItems: [] },
+    { name: "Messages", icon: faEnvelope, view: <Messages  user={user} />, subItems: [] },
     {
       name: "Settings",
       icon: faCog,
       view: null,
       subItems: [
-        { name: "Général", icon: faCog, view: <Settings /> },
-        { name: "Association", icon: faUser, view: <ClubSettings /> },
+        { name: "General", icon: faCog, view: <Settings user={user} triggerEffect={triggerEffect} setTriggerEffect={setTriggerEffect} /> },
+        { name: "Association", icon: faUser, view: <ClubSettings user={user}  /> },
       ],
     },
   ];
+
+  useEffect(() => {
+    isConnected();
+  }, [triggerEffect]);
+
+
+  async function isConnected() {
+    const tempUser = await getUserByToken();
+    setUser(tempUser);
+    const user_logged_in = (tempUser.id !== undefined);
+    if (!user_logged_in) {
+      navigate("/Login");
+    }
+  }
 
   function getTabView(tabName: string) {
     // return the rendered component of the tab (can be either a tab from tabs or a subItem from a tab)
@@ -86,13 +95,13 @@ export default function Home() {
         }
       }
     }
-    return <Dashboard />;
+    return <Dashboard user={user} />;
   }
 
   return (
     <>
       <div className="home">
-        <NavbarComponent menu={menu} setMenu={setMenu} />
+        <NavbarComponent menu={menu} setMenu={setMenu} user={user}  />
 
         <div className="home-container">
           <div className="home-menu">

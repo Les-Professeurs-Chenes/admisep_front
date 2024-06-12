@@ -1,9 +1,14 @@
+import User from '../../models/User'
 import TresoAsso from './components/TresoAsso'
 import UserInfo from './components/UserInfo'
 import UserNotifications from './components/UserNotifications'
 import './User.css'
 
-export default function Dashboard() {
+export default function Dashboard({
+  user
+} : {
+  user: User
+}) {
 
   const allAssoTresoProps = [
     {
@@ -39,7 +44,7 @@ export default function Dashboard() {
         <div className="account-details">
           
           <div className="user-info">
-            <UserInfo />
+            <UserInfo user={user} />
           </div>
           <div className="notifications">
             <UserNotifications />
